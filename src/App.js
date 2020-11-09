@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './App.css';
 import Buttons from './Components/Buttons'
 import {Input} from './Components/Input'
-import {Clear} from './Components/Clear'
+import {Clear} from './Components/Clear' 
+import * as math from 'mathjs'
 
 class App extends Component {
 
@@ -27,6 +28,11 @@ class App extends Component {
       input: ""
     })
   };
+
+  answer = () => {
+    console.log("Equal Clicked")
+   this.setState({input: math.evaluate(this.state.input)})
+  }
 
 
 
@@ -60,7 +66,7 @@ class App extends Component {
             <Buttons handleClick={this.equation}>/</Buttons>
           </div>
           <div className="row">
-            <Buttons>=</Buttons>
+            <Buttons handleClick={this.answer}>=</Buttons>
           </div>
 
         </div>
