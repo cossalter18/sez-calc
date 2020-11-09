@@ -4,9 +4,11 @@
     justify-content: flex-end;
     align-items: center;
     font-size: 1.4em;
-    background-color: #000000;
+    background-color: black;
     padding: 0.5em;
-    outline: 1px solid #888888;
-    color: white
+    /* outline: 1px solid #4bddb2; */
+    color: white;
+    /* border-top-left-radius: 7%;
+    border-top-right-radius: 7%; */
 
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './App.css';
 import Buttons from './Components/Buttons'
-import {Input} from './Components/Input'
-import {Clear} from './Components/Clear' 
+import { Input } from './Components/Input'
 import * as math from 'mathjs'
+import readOut from './Components/readOut'
 
 class App extends Component {
 
@@ -11,14 +11,17 @@ class App extends Component {
     super(props);
 
     this.state = {
-      input: ''
+      input: '',
+      readOut: ''
     }
   }
+
+  
 
 
   equation = val => {
     console.log("Clicked")
-    this.setState({input: this.state.input + val});
+    this.setState({ input: this.state.input + val });
   }
 
   clear = () => {
@@ -31,7 +34,7 @@ class App extends Component {
 
   answer = () => {
     console.log("Equal Clicked")
-   this.setState({input: math.evaluate(this.state.input)})
+    this.setState({ input: math.evaluate(this.state.input), readOut: this.state.input  })
   }
 
 
@@ -68,8 +71,8 @@ class App extends Component {
           <div className="row">
             <Buttons handleClick={this.answer}>=</Buttons>
           </div>
-
         </div>
+       
       </div>
     );
   }
