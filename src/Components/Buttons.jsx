@@ -1,10 +1,16 @@
 import React from "react";
-import '../Styles/Button.css'
+import '../Styles/Buttons.css'
 
-const Button = props => (
-    <div>
+
+const isOperator = val => {
+    return !isNaN(val) || val === "C" || val === ".";
+}
+
+const Buttons = props =>  (
+    <div className = {`button ${isOperator(props.children) ? null : "operator"}`}
+    onClick={() => props.handleClick(props.children)}>
         {props.children}
     </div>
 )
 
-export default Button;
+export default Buttons;
