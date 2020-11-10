@@ -22,14 +22,15 @@ class App extends Component {
     this.setState({ input: this.state.input + val });
   }
 
+  // function to clear the inputs when C is clicked 
   clear = () => {
     console.log('Clicked Clear');
-
     this.setState({
       input: ""
     })
   };
 
+  // evaluate the input the user entered upon clicking the equal sign 
   answer = () => {
     console.log("Equal Clicked")
     this.setState({ input: math.evaluate(this.state.input), readOut: this.state.input })
@@ -43,10 +44,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* holds the whole calculator outline */}
         <div className="calc">
           <ReadOut readOut={this.state.readOut}></ReadOut>
+          {/* this will be our input screen that will display the numbers clicked */}
           <Input input={this.state.input}></Input>
           <div className="row">
+            {/* each button handleClick will run this.equation which will set the state of the input to the numbers clicked  */}
             <Buttons handleClick={this.equation}>1</Buttons>
             <Buttons handleClick={this.equation}>2</Buttons>
             <Buttons handleClick={this.equation}>3</Buttons>
@@ -71,6 +75,7 @@ class App extends Component {
             <Buttons handleClick={this.equation}>/</Buttons>
           </div>
           <div className="row">
+            {/* equal button handleClick will run this.answer which runs math.evaluate to output the answer from the input in state  */}
             <Buttons handleClick={this.answer}>=</Buttons>
           </div>
         </div>
