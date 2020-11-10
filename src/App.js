@@ -17,7 +17,6 @@ class App extends Component {
     }
   }
 
-
   equation = val => {
     console.log("Clicked")
     this.setState({ input: this.state.input + val });
@@ -40,7 +39,6 @@ class App extends Component {
   newReadOut(newReadOut) {
     this.setState({ readOut: [...this.state.readOut, newReadOut] })
   }
-
 
   render() {
     return (
