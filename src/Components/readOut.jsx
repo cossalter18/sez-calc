@@ -1,9 +1,11 @@
 import React from 'react';
 
 
-export const ReadOut = (props) => (
+const ReadOut = (props) => (
     <div className="answers">
         {props.readOut}
         {/* {props.problem} */}
     </div>
 )
+
+export default ReadOut

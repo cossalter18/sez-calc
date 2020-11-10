@@ -3,7 +3,7 @@ import './App.css';
 import Buttons from './Components/Buttons'
 import { Input } from './Components/Input'
 import * as math from 'mathjs'
-import {ReadOut} from './Components/ReadOut'
+import ReadOut from './Components/ReadOut'
 
 class App extends Component {
 
