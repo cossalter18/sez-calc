@@ -3,7 +3,7 @@ import './App.css';
 import Buttons from './Components/Buttons'
 import { Input } from './Components/Input'
 import * as math from 'mathjs'
-import readOut from './Components/readOut'
+import { ReadOut} from './Components/ReadOut'
 
 class App extends Component {
 
@@ -12,11 +12,10 @@ class App extends Component {
 
     this.state = {
       input: '',
-      readOut: ''
+      readOut: '',
+      problem: ''
     }
   }
-
-  
 
 
   equation = val => {
@@ -34,15 +33,20 @@ class App extends Component {
 
   answer = () => {
     console.log("Equal Clicked")
-    this.setState({ input: math.evaluate(this.state.input), readOut: this.state.input  })
+    this.setState({ input: math.evaluate(this.state.input), readOut: this.state.input })
+    // this.newReadOut()
   }
 
+  newReadOut(newReadOut) {
+    this.setState({ readOut: [...this.state.readOut, newReadOut] })
+  }
 
 
   render() {
     return (
       <div className="App">
         <div className="calc">
+          <ReadOut readOut={this.state.readOut}></ReadOut>
           <Input input={this.state.input}></Input>
           <div className="row">
             <Buttons handleClick={this.equation}>1</Buttons>
@@ -72,7 +76,6 @@ class App extends Component {
             <Buttons handleClick={this.answer}>=</Buttons>
           </div>
         </div>
-       
       </div>
     );
   }
